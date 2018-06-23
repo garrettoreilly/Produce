@@ -43,6 +43,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		683BC1D820DDC86900087216 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6861CBE320DDBCD000057D2F /* Article.swift */,
+				683BC1D620DDC61A00087216 /* AccessKeys.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		683BC1D920DDC88800087216 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6861CBE020DDBCD000057D2F /* NewsTableViewController.swift */,
+				68E053C120DDBB9D0081AA65 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		683BC1DA20DDC89900087216 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				6861CBE220DDBCD000057D2F /* ArticleCell.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		683BC1DB20DDC8AB00087216 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6861CBE420DDBCD000057D2F /* URL+Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		68E053B320DDBB9D0081AA65 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +96,14 @@
 		68E053BE20DDBB9D0081AA65 /* Produce */ = {
 			isa = PBXGroup;
 			children = (
-				6861CBE320DDBCD000057D2F /* Article.swift */,
-				6861CBE220DDBCD000057D2F /* ArticleCell.swift */,
-				6861CBE020DDBCD000057D2F /* NewsTableViewController.swift */,
-				6861CBE420DDBCD000057D2F /* URL+Helpers.swift */,
+				683BC1D820DDC86900087216 /* Models */,
+				683BC1DA20DDC89900087216 /* Custom Views */,
+				683BC1D920DDC88800087216 /* View Controllers */,
+				683BC1DB20DDC8AB00087216 /* Helpers */,
 				68E053BF20DDBB9D0081AA65 /* AppDelegate.swift */,
-				68E053C120DDBB9D0081AA65 /* ViewController.swift */,
 				68E053C620DDBB9E0081AA65 /* Assets.xcassets */,
 				68E053C820DDBB9E0081AA65 /* LaunchScreen.storyboard */,
 				68E053CB20DDBB9E0081AA65 /* Info.plist */,
-				683BC1D620DDC61A00087216 /* AccessKeys.swift */,
 			);
 			path = Produce;
 			sourceTree = "<group>";
