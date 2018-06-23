@@ -13,7 +13,7 @@ struct Response: Codable {
     let totalResults: Int?
     let articles: [Article]
 
-    static func fetchArticle(completion: @escaping ([Article]?) -> Void) {
+    static func fetchArticles(completion: @escaping ([Article]?) -> Void) {
         let baseURL = URL(string: "https://newsapi.org/v2/top-headlines?")!
 
         let query: [String: String] = [
@@ -30,7 +30,9 @@ struct Response: Codable {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let decoder = JSONDecoder()
             if let data = data, let response = try? decoder.decode(Response.self, from: data) {
-                completion(response.articles)
+                DispatchQueue.main.sync {
+                    completion(response.articles)
+                }
             } else {
                 print("Either no data was returned or data was not serialized.")
                 completion(nil)

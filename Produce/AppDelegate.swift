@@ -19,9 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-        let viewController = ViewController()
+        let menuTableViewController = MenuTableViewController(style: .grouped)
         
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController(rootViewController: menuTableViewController)
+        navigationController.navigationBar.barStyle = .black
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         window?.rootViewController = navigationController
         
