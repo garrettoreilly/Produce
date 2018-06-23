@@ -39,14 +39,12 @@ class NewsTableViewController: UITableViewController {
         return articles.count
     }
     
-//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150
-//    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
+
         cell.article = articles[indexPath.row]
         cell.layoutSubviews()
+        
         tableView.beginUpdates()
         tableView.reloadRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
@@ -57,6 +55,8 @@ class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let url = articles[indexPath.row].url else { return }
         let safariViewController = SFSafariViewController(url: url)
+        safariViewController.preferredBarTintColor = .black
+        safariViewController.preferredControlTintColor = .white
         present(safariViewController, animated: true, completion: nil)
     }
 }
