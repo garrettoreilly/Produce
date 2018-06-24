@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Response: Codable {
     let status: String?
@@ -49,7 +50,19 @@ struct Article: Codable {
     let description: String?
     let url: URL?
     let urlToImage: URL?
-    let publishedAt: String?
+    let datePublished: String?
+    
+    var image: UIImage? = nil
+    
+    enum CodingKeys: String, CodingKey {
+        case source
+        case author
+        case title
+        case description
+        case url
+        case urlToImage
+        case datePublished = "publishedAt"
+    }
 }
 
 struct Source: Codable {

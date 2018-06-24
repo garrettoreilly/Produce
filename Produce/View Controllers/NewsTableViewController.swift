@@ -41,9 +41,19 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleCell
-
+        
         cell.article = articles[indexPath.row]
+        cell.mainImageView.image = UIImage()
         cell.layoutSubviews()
+        
+        // Cache the image for the article at the current indexPath
+        if articles[indexPath.row].image == nil {
+            if let url = articles[indexPath.row].urlToImage {
+                cell.fetchImage(with: url) { (image) in
+                    self.articles[indexPath.row].image = image
+                }
+            }
+        }
         
         tableView.beginUpdates()
         tableView.reloadRows(at: [indexPath], with: .fade)

@@ -72,28 +72,30 @@ class ArticleCell: UITableViewCell {
             let source = article.source.name else { return }
         titleLabel.text = title
         sourceLabel.text = source
-
-        if let url = article.urlToImage {
-            fetchImage(from: url)
+        
+        if let image = article.image {
+            mainImageView.image = image
         }
     }
     
-    func fetchImage(from url: URL) {
+    func fetchImage(with url: URL, completion: @escaping (UIImage) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data, let image = UIImage(data: data) {
                 DispatchQueue.main.sync {
-                    self.cropImage(from: image)
+                    self.cropImage(from: image, with: completion)
                 }
             }
         }
         task.resume()
     }
     
-    func cropImage(from image: UIImage) {
-        let imageHeight = image.size.width * 150 / self.frame.width
+    func cropImage(from image: UIImage, with completion: @escaping (UIImage) -> Void) {
+        let imageHeight = image.size.width * 150 / contentView.bounds.width
         let cropRect = CGRect(x: 0, y: 0, width: image.size.width, height: imageHeight)
         let cutImageRef: CGImage = (image.cgImage?.cropping(to: cropRect))!
-        mainImageView.image = UIImage(cgImage: cutImageRef)
+        let croppedImage = UIImage(cgImage: cutImageRef)
+        mainImageView.image = croppedImage
+        completion(croppedImage)
     }
     
     required init?(coder aDecoder: NSCoder) {
