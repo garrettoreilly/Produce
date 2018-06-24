@@ -18,7 +18,8 @@ class NewsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         Response.fetchArticles { (fetchedArticles) in
-            self.articles = fetchedArticles!
+            guard let articles = fetchedArticles else { return }
+            self.articles = articles
             self.tableView.reloadData()
         }
         
