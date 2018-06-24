@@ -96,11 +96,11 @@
 		68E053BE20DDBB9D0081AA65 /* Produce */ = {
 			isa = PBXGroup;
 			children = (
+				68E053BF20DDBB9D0081AA65 /* AppDelegate.swift */,
 				683BC1D820DDC86900087216 /* Models */,
 				683BC1DA20DDC89900087216 /* Custom Views */,
 				683BC1D920DDC88800087216 /* View Controllers */,
 				683BC1DB20DDC8AB00087216 /* Helpers */,
-				68E053BF20DDBB9D0081AA65 /* AppDelegate.swift */,
 				68E053C620DDBB9E0081AA65 /* Assets.xcassets */,
 				68E053C820DDBB9E0081AA65 /* LaunchScreen.storyboard */,
 				68E053CB20DDBB9E0081AA65 /* Info.plist */,
