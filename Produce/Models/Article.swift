@@ -36,6 +36,7 @@ struct Response: Codable {
                 }
             } else {
                 print("Either no data was returned or data was not serialized.")
+                print(String(data: data!, encoding: .utf8)!)
                 completion(nil)
             }
         }
