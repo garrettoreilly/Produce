@@ -36,7 +36,6 @@ struct Response: Codable {
                 }
             } else {
                 print("Either no data was returned or data was not serialized.")
-                print(String(data: data!, encoding: .utf8)!)
                 completion(nil)
             }
         }
@@ -49,8 +48,8 @@ struct Article: Codable {
     let author: String?
     let title: String?
     let description: String?
-    let url: URL?
-    let urlToImage: URL?
+    let url: String?
+    let urlToImage: String?
     let datePublished: String?
     
     var image: UIImage? = nil

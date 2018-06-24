@@ -48,7 +48,7 @@ class NewsTableViewController: UITableViewController {
         
         // Cache the image for the article at the current indexPath
         if articles[indexPath.row].image == nil {
-            if let url = articles[indexPath.row].urlToImage {
+            if let urlString = articles[indexPath.row].urlToImage, let url = URL(string: urlString) {
                 cell.fetchImage(with: url) { (image) in
                     self.articles[indexPath.row].image = image
                 }
@@ -63,7 +63,7 @@ class NewsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let url = articles[indexPath.row].url else { return }
+        guard let urlString = articles[indexPath.row].url, let url = URL(string: urlString)  else { return }
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.preferredBarTintColor = .black
         safariViewController.preferredControlTintColor = .white
