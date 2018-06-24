@@ -31,15 +31,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         allNewsNavigationController.navigationBar.barStyle = .black
         allNewsNavigationController.tabBarItem = UITabBarItem(title: "All News", image: nil, selectedImage: nil)
         
+        // Need to create a view controller for sources
+        let sourcesTableViewController = UITableViewController()
+        sourcesTableViewController.view.backgroundColor = .black
+        sourcesTableViewController.navigationItem.title = "Sources"
+        let sourcesNavigationController = UINavigationController(rootViewController: sourcesTableViewController)
+        sourcesNavigationController.navigationBar.barStyle = .black
+        sourcesNavigationController.tabBarItem = UITabBarItem(title: "Sources", image: nil, selectedImage: nil)
+        
+        
         let settingsTableViewController = MenuTableViewController(style: .grouped)
         settingsTableViewController.navigationItem.title = "Settings"
         let settingsNavigationController = UINavigationController(rootViewController: settingsTableViewController)
         settingsNavigationController.navigationBar.barStyle = .black
         settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: nil, selectedImage: nil)
         
+
         let tabBarController = UITabBarController()
         tabBarController.tabBar.barStyle = .black
-        tabBarController.viewControllers = [myNewsNavigationController, allNewsNavigationController, settingsNavigationController]
+        tabBarController.viewControllers = [myNewsNavigationController, allNewsNavigationController, sourcesNavigationController, settingsNavigationController]
         tabBarController.selectedViewController = myNewsNavigationController
         
         window?.rootViewController = tabBarController
