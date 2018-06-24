@@ -16,7 +16,6 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
-        navigationItem.title = "Menu"
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "menuCell")
     }

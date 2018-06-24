@@ -19,13 +19,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-        let menuTableViewController = MenuTableViewController(style: .grouped)
+        let myNewsTableViewController = NewsTableViewController()
+        myNewsTableViewController.navigationItem.title = "My News"
+        let myNewsNavigationController = UINavigationController(rootViewController: myNewsTableViewController)
+        myNewsNavigationController.navigationBar.barStyle = .black
+        myNewsNavigationController.tabBarItem = UITabBarItem(title: "My News", image: nil, selectedImage: nil)
         
-        let navigationController = UINavigationController(rootViewController: menuTableViewController)
-        navigationController.navigationBar.barStyle = .black
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let allNewsTableViewController = NewsTableViewController()
+        allNewsTableViewController.navigationItem.title = "All News"
+        let allNewsNavigationController = UINavigationController(rootViewController: allNewsTableViewController)
+        allNewsNavigationController.navigationBar.barStyle = .black
+        allNewsNavigationController.tabBarItem = UITabBarItem(title: "All News", image: nil, selectedImage: nil)
         
-        window?.rootViewController = navigationController
+        let settingsTableViewController = MenuTableViewController(style: .grouped)
+        settingsTableViewController.navigationItem.title = "Settings"
+        let settingsNavigationController = UINavigationController(rootViewController: settingsTableViewController)
+        settingsNavigationController.navigationBar.barStyle = .black
+        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: nil, selectedImage: nil)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.barStyle = .black
+        tabBarController.viewControllers = [myNewsNavigationController, allNewsNavigationController, settingsNavigationController]
+        tabBarController.selectedViewController = myNewsNavigationController
+        
+        window?.rootViewController = tabBarController
         
         return true
     }

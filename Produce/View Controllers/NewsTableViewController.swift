@@ -22,7 +22,6 @@ class NewsTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
-        navigationItem.title = "Top News"
         view.backgroundColor = .black
         tableView.separatorStyle = .none
         
