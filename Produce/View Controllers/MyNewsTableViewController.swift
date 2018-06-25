@@ -23,8 +23,13 @@ class MyNewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        setupRefreshControl()
         refreshArticles()
         
+    }
+    
+    func setupView() {
         navigationItem.title = "My News"
         view.backgroundColor = .black
         tableView.separatorStyle = .none
@@ -32,7 +37,9 @@ class MyNewsTableViewController: UITableViewController {
         tableView.rowHeight = 150
         
         tableView.register(ArticleCell.self, forCellReuseIdentifier: "articleCell")
-        
+    }
+    
+    func setupRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
         tableView.refreshControl = refreshControl
