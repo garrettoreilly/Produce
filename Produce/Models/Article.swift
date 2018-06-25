@@ -42,7 +42,7 @@ struct Article: Codable {
 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let decoder = JSONDecoder()
-            if let data = data, let response = try? decoder.decode(Response.self, from: data) {
+            if let data = data, let response = try? decoder.decode(ArticleResponse.self, from: data) {
                 DispatchQueue.main.sync {
                     completion(response.articles)
                 }
@@ -56,7 +56,7 @@ struct Article: Codable {
 }
 
 
-struct Response: Codable {
+struct ArticleResponse: Codable {
     let status: String?
     let totalResults: Int?
     let articles: [Article]

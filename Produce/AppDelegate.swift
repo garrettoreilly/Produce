@@ -30,9 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         allNewsNavigationController.navigationBar.barStyle = .black
         allNewsNavigationController.tabBarItem = UITabBarItem(title: "All News", image: nil, selectedImage: nil)
         
-        // Need to create a view controller for sources
-        let sourcesTableViewController = UITableViewController()
-        sourcesTableViewController.view.backgroundColor = .black
+        let sourcesTableViewController = SourcesTableViewController()
         sourcesTableViewController.navigationItem.title = "Sources"
         let sourcesNavigationController = UINavigationController(rootViewController: sourcesTableViewController)
         sourcesNavigationController.navigationBar.barStyle = .black

@@ -26,4 +26,34 @@ struct Source: Codable {
         case language
         case country
     }
+    
+    static func fetchSources(completion: @escaping ([Source]?) -> Void) {
+        let baseURL = URL(string: "https://newsapi.org/v2/sources?")
+        
+        let query = [
+            "apiKey": AccessKeys.newsAPI
+        ]
+        
+        guard let url = baseURL?.withQueries(query) else {
+            completion(nil)
+            print("Unable to build URL with supplied queries.")
+            return
+        }
+        
+        let decoder = JSONDecoder()
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data, let response = try? decoder.decode(SourceResponse.self, from: data) {
+                completion(response.sources)
+            } else {
+                print("Either no data was returned or the data was not serialized.")
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+}
+
+struct SourceResponse: Codable {
+    let status: String?
+    let sources: [Source]
 }
