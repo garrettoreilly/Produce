@@ -9,8 +9,6 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
-    
-    let newsTableViewController = NewsTableViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +38,7 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(newsTableViewController, animated: true)
+        
     }
 
 }

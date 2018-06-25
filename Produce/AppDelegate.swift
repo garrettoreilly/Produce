@@ -19,13 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-        let myNewsTableViewController = NewsTableViewController()
-        myNewsTableViewController.navigationItem.title = "My News"
+        let myNewsTableViewController = MyNewsTableViewController()
         let myNewsNavigationController = UINavigationController(rootViewController: myNewsTableViewController)
         myNewsNavigationController.navigationBar.barStyle = .black
         myNewsNavigationController.tabBarItem = UITabBarItem(title: "My News", image: nil, selectedImage: nil)
         
-        let allNewsTableViewController = NewsTableViewController()
+        let allNewsTableViewController = AllNewsTableViewController()
         allNewsTableViewController.navigationItem.title = "All News"
         let allNewsNavigationController = UINavigationController(rootViewController: allNewsTableViewController)
         allNewsNavigationController.navigationBar.barStyle = .black

@@ -14,13 +14,8 @@ struct Response: Codable {
     let totalResults: Int?
     let articles: [Article]
 
-    static func fetchArticles(completion: @escaping ([Article]?) -> Void) {
+    static func fetchArticles(query: [String: String], completion: @escaping ([Article]?) -> Void) {
         let baseURL = URL(string: "https://newsapi.org/v2/top-headlines?")!
-
-        let query: [String: String] = [
-            "country": "us",
-            "apiKey": AccessKeys.newsAPI
-        ]
 
         guard let url = baseURL.withQueries(query) else {
             completion(nil)

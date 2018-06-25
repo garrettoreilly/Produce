@@ -10,19 +10,26 @@ import Foundation
 import UIKit
 import SafariServices
 
-class NewsTableViewController: UITableViewController {
+class MyNewsTableViewController: UITableViewController {
     
     var articles = [Article]()
+    
+    let query: [String: String] = [
+        "sources": "the-economist, the-washington-post, reuters, independent",
+        "pageSize": "100",
+        "apiKey": AccessKeys.newsAPI
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Response.fetchArticles { (fetchedArticles) in
+        Response.fetchArticles(query: query) { (fetchedArticles) in
             guard let articles = fetchedArticles else { return }
             self.articles = articles
             self.tableView.reloadData()
         }
         
+        navigationItem.title = "My News"
         view.backgroundColor = .black
         tableView.separatorStyle = .none
         
