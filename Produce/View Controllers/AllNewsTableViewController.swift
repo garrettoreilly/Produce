@@ -47,7 +47,7 @@ class AllNewsTableViewController: UITableViewController {
     }
     
     @objc func refreshArticles() {
-        Response.fetchArticles(query: query) { (fetchedArticles) in
+        Article.fetchArticles(query: query) { (fetchedArticles) in
             guard let articles = fetchedArticles else { return }
             self.articles = articles
             self.tableView.reloadData()
