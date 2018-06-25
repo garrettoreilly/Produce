@@ -47,7 +47,7 @@ struct Article: Codable {
     let urlToImage: String?
     let datePublished: String?
     
-    var image: UIImage? = nil
+    var image: UIImage?
     
     enum CodingKeys: String, CodingKey {
         case source
@@ -58,10 +58,5 @@ struct Article: Codable {
         case urlToImage
         case datePublished = "publishedAt"
     }
-}
-
-struct Source: Codable {
-    let id: String?
-    let name: String?
 }
 
