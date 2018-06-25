@@ -9,11 +9,28 @@
 import Foundation
 import UIKit
 
-struct Response: Codable {
-    let status: String?
-    let totalResults: Int?
-    let articles: [Article]
+struct Article: Codable {
+    let source: Source
+    let author: String?
+    let title: String?
+    let description: String?
+    let url: String?
+    let urlToImage: String?
+    let datePublished: String?
+    
+    var image: UIImage? = nil
+    
+    enum CodingKeys: String, CodingKey {
+        case source
+        case author
+        case title
+        case description
+        case url
+        case urlToImage
+        case datePublished = "publishedAt"
+    }
 
+    
     static func fetchArticles(query: [String: String], completion: @escaping ([Article]?) -> Void) {
         let baseURL = URL(string: "https://newsapi.org/v2/top-headlines?")!
 
@@ -38,26 +55,10 @@ struct Response: Codable {
     }
 }
 
-struct Article: Codable {
-    let source: Source
-    let author: String?
-    let title: String?
-    let description: String?
-    let url: String?
-    let urlToImage: String?
-    let datePublished: String?
-    
-    var image: UIImage? = nil
-    
-    enum CodingKeys: String, CodingKey {
-        case source
-        case author
-        case title
-        case description
-        case url
-        case urlToImage
-        case datePublished = "publishedAt"
-    }
+struct Response: Codable {
+    let status: String?
+    let totalResults: Int?
+    let articles: [Article]
 }
 
 struct Source: Codable {
