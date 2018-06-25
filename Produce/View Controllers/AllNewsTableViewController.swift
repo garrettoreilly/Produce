@@ -24,11 +24,7 @@ class AllNewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Response.fetchArticles(query: query) { (fetchedArticles) in
-            guard let articles = fetchedArticles else { return }
-            self.articles = articles
-            self.tableView.reloadData()
-        }
+        refreshArticles()
         
         navigationItem.title = "All News"
         view.backgroundColor = .black
@@ -37,6 +33,20 @@ class AllNewsTableViewController: UITableViewController {
         tableView.rowHeight = 150
         
         tableView.register(ArticleCell.self, forCellReuseIdentifier: "articleCell")
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc func refreshArticles() {
+        Response.fetchArticles(query: query) { (fetchedArticles) in
+            guard let articles = fetchedArticles else { return }
+            self.articles = articles
+            self.tableView.reloadData()
+        }
+        
+        refreshControl?.endRefreshing()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
