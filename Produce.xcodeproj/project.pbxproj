@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		683BC1D720DDC61A00087216 /* AccessKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683BC1D620DDC61A00087216 /* AccessKeys.swift */; };
+		6848FDD620E2C1720074B5B3 /* ArticleControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6848FDD520E2C1720074B5B3 /* ArticleControllerDelegate.swift */; };
 		6861CBE520DDBCD000057D2F /* MyNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861CBE020DDBCD000057D2F /* MyNewsTableViewController.swift */; };
 		6861CBE720DDBCD000057D2F /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861CBE220DDBCD000057D2F /* ArticleCell.swift */; };
 		6861CBE820DDBCD000057D2F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861CBE320DDBCD000057D2F /* Article.swift */; };
 		6861CBE920DDBCD000057D2F /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861CBE420DDBCD000057D2F /* URL+Helpers.swift */; };
 		68AC1BD920E16076000D972E /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC1BD820E16076000D972E /* Source.swift */; };
 		68AC1BDB20E174E7000D972E /* SourcesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC1BDA20E174E7000D972E /* SourcesTableViewController.swift */; };
+		68AC1BDD20E29ECC000D972E /* AritcleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC1BDC20E29ECC000D972E /* AritcleController.swift */; };
 		68E053C020DDBB9D0081AA65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E053BF20DDBB9D0081AA65 /* AppDelegate.swift */; };
 		68E053C220DDBB9D0081AA65 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E053C120DDBB9D0081AA65 /* SettingsTableViewController.swift */; };
 		68E053C720DDBB9E0081AA65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E053C620DDBB9E0081AA65 /* Assets.xcassets */; };
@@ -23,12 +25,14 @@
 
 /* Begin PBXFileReference section */
 		683BC1D620DDC61A00087216 /* AccessKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessKeys.swift; sourceTree = "<group>"; };
+		6848FDD520E2C1720074B5B3 /* ArticleControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleControllerDelegate.swift; sourceTree = "<group>"; };
 		6861CBE020DDBCD000057D2F /* MyNewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNewsTableViewController.swift; sourceTree = "<group>"; };
 		6861CBE220DDBCD000057D2F /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		6861CBE320DDBCD000057D2F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		6861CBE420DDBCD000057D2F /* URL+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
 		68AC1BD820E16076000D972E /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		68AC1BDA20E174E7000D972E /* SourcesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesTableViewController.swift; sourceTree = "<group>"; };
+		68AC1BDC20E29ECC000D972E /* AritcleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AritcleController.swift; sourceTree = "<group>"; };
 		68E053BC20DDBB9D0081AA65 /* Produce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Produce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E053BF20DDBB9D0081AA65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68E053C120DDBB9D0081AA65 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				6861CBE420DDBCD000057D2F /* URL+Helpers.swift */,
+				68AC1BDC20E29ECC000D972E /* AritcleController.swift */,
+				6848FDD520E2C1720074B5B3 /* ArticleControllerDelegate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -187,6 +193,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68AC1BDD20E29ECC000D972E /* AritcleController.swift in Sources */,
+				6848FDD620E2C1720074B5B3 /* ArticleControllerDelegate.swift in Sources */,
 				68AC1BDB20E174E7000D972E /* SourcesTableViewController.swift in Sources */,
 				68F7CB4F20E052A80071403B /* AllNewsTableViewController.swift in Sources */,
 				68E053C220DDBB9D0081AA65 /* SettingsTableViewController.swift in Sources */,

@@ -29,30 +29,6 @@ struct Article: Codable {
         case urlToImage
         case datePublished = "publishedAt"
     }
-
-    
-    static func fetchArticles(query: [String: String], completion: @escaping ([Article]?) -> Void) {
-        let baseURL = URL(string: "https://newsapi.org/v2/top-headlines?")!
-
-        guard let url = baseURL.withQueries(query) else {
-            completion(nil)
-            print("Unable to build URL with supplied queries.")
-            return
-        }
-
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            let decoder = JSONDecoder()
-            if let data = data, let response = try? decoder.decode(ArticleResponse.self, from: data) {
-                DispatchQueue.main.sync {
-                    completion(response.articles)
-                }
-            } else {
-                print("Either no data was returned or data was not serialized.")
-                completion(nil)
-            }
-        }
-        task.resume()
-    }
 }
 
 

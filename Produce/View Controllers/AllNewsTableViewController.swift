@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 import SafariServices
 
-class AllNewsTableViewController: UITableViewController {
+class AllNewsTableViewController: UITableViewController, ArticleControllerDelegate {
+    
+    var articleController = ArticleController()
     
     var articles = [Article]()
     
@@ -24,6 +26,7 @@ class AllNewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        articleController.delegate = self
         setupView()
         setupRefreshControl()
         refreshArticles()
@@ -47,13 +50,15 @@ class AllNewsTableViewController: UITableViewController {
     }
     
     @objc func refreshArticles() {
-        Article.fetchArticles(query: query) { (fetchedArticles) in
-            guard let articles = fetchedArticles else { return }
+        articleController.fetchArticles(with: query)
+        refreshControl?.endRefreshing()
+    }
+    
+    func updateArticles(with articles: [Article]?) {
+        if let articles = articles {
             self.articles = articles
             self.tableView.reloadData()
         }
-        
-        refreshControl?.endRefreshing()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
