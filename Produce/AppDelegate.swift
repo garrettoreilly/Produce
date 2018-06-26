@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sourcesNavigationController.tabBarItem = UITabBarItem(title: "Sources", image: nil, selectedImage: nil)
         
         
-        let settingsTableViewController = MenuTableViewController(style: .grouped)
+        let settingsTableViewController = SettingsTableViewController(style: .grouped)
         settingsTableViewController.navigationItem.title = "Settings"
         let settingsNavigationController = UINavigationController(rootViewController: settingsTableViewController)
         settingsNavigationController.navigationBar.barStyle = .black

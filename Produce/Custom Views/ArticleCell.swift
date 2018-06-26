@@ -57,13 +57,12 @@ class ArticleCell: UITableViewCell {
         
         titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: contentView.layoutMargins.left).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: contentView.layoutMargins.right * -1).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: sourceLabel.topAnchor, constant: -10).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: sourceLabel.topAnchor, constant: -8).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: titleLabel.font.pointSize * CGFloat(titleLabel.numberOfLines))
 
         sourceLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.layoutMargins.left).isActive = true
         sourceLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: self.layoutMargins.right * -1).isActive = true
         sourceLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: self.layoutMargins.bottom * -1).isActive = true
-        sourceLabel.heightAnchor.constraint(equalToConstant: sourceLabel.font.pointSize+1).isActive = true
     }
     
     override func layoutSubviews() {
