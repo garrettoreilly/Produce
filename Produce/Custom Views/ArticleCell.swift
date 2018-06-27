@@ -66,6 +66,7 @@ class ArticleCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         guard let article = article,
             let title = article.title,
             let source = article.source.name else { return }

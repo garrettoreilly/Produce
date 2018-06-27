@@ -93,7 +93,11 @@ class MyNewsTableViewController: UITableViewController, ArticleControllerDelegat
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let urlString = articles[indexPath.row].url, let url = URL(string: urlString)  else { return }
-        let safariViewController = SFSafariViewController(url: url)
+        
+        let readerViewConfiguration = SFSafariViewController.Configuration()
+        readerViewConfiguration.entersReaderIfAvailable = true
+        
+        let safariViewController = SFSafariViewController(url: url, configuration: readerViewConfiguration)
         safariViewController.preferredBarTintColor = .black
         safariViewController.preferredControlTintColor = .white
         present(safariViewController, animated: true, completion: nil)
