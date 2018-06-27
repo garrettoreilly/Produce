@@ -17,7 +17,7 @@ class MyNewsTableViewController: UITableViewController, ArticleControllerDelegat
     var articles = [Article]()
     
     let query: [String: String] = [
-        "sources": "the-economist, the-washington-post, reuters, independent, associated-press",
+        "sources": "the-economist, the-washington-post, reuters, independent",
         "pageSize": "100",
         "apiKey": AccessKeys.newsAPI
     ]
