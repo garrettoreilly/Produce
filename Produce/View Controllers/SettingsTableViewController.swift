@@ -9,21 +9,41 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
+    
+    var settings = Settings(readerModeEnabled: false)
+    
+    let readerModeCell: UITableViewCell = {
+        let cell = UITableViewCell()
+        cell.selectionStyle = .none
+        cell.textLabel?.text = "Enable Reader mode by default"
+        let readerSwitch = UISwitch()
+        readerSwitch.setOn(false, animated: false)
+        readerSwitch.addTarget(self, action: #selector(readerSwitchValueChanged), for: .valueChanged)
+        readerSwitch.translatesAutoresizingMaskIntoConstraints = false
+        cell.addSubview(readerSwitch)
+        readerSwitch.rightAnchor.constraint(equalTo: cell.rightAnchor, constant: -8).isActive = true
+        readerSwitch.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
+        
+        return cell
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .black
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "menuCell")
+    }
+    
+    @objc func readerSwitchValueChanged() {
+        settings.readerModeEnabled = !settings.readerModeEnabled
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -32,7 +52,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
+        let cell = self.readerModeCell
         
         return cell
     }
