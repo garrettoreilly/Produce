@@ -21,7 +21,7 @@ class AllNewsTableViewController: UITableViewController, ArticleControllerDelega
     let query: [String: String] = [
         "country": "us",
         "sortBy": "popularity",
-        "apiKey": AccessKeys.newsAPI
+        "apiKey": AccessKeys.newsAPI // struct AccessKeys { static let newsAPI: String = *insert your API key here* }
     ]
 
     

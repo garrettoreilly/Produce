@@ -21,7 +21,7 @@ class MyNewsTableViewController: UITableViewController, ArticleControllerDelegat
     let query: [String: String] = [
         "sources": "the-economist, the-washington-post, reuters, independent",
         "pageSize": "100",
-        "apiKey": AccessKeys.newsAPI
+        "apiKey": AccessKeys.newsAPI // struct AccessKeys { static let newsAPI: String = *insert your API key here* }
     ]
     
     override func viewDidLoad() {
