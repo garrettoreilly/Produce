@@ -8,6 +8,21 @@
 
 import Foundation
 
-struct Settings {
+class Settings {
+    
     var readerModeEnabled: Bool
+    
+    private init(readerModeEnabled: Bool = false) {
+        self.readerModeEnabled = readerModeEnabled
+    }
+    
+    // Singleton
+    class var sharedInstance: Settings {
+        struct Static {
+            static let instance = Settings()
+        }
+        
+        return Static.instance
+    }
+    
 }

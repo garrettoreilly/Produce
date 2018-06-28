@@ -12,6 +12,8 @@ import SafariServices
 
 class MyNewsTableViewController: UITableViewController, ArticleControllerDelegate {
     
+    let settings = Settings.sharedInstance
+    
     var articleController = ArticleController()
     
     var articles = [Article]()
@@ -95,7 +97,7 @@ class MyNewsTableViewController: UITableViewController, ArticleControllerDelegat
         guard let urlString = articles[indexPath.row].url, let url = URL(string: urlString)  else { return }
         
         let readerViewConfiguration = SFSafariViewController.Configuration()
-        readerViewConfiguration.entersReaderIfAvailable = true
+        readerViewConfiguration.entersReaderIfAvailable = settings.readerModeEnabled
         
         let safariViewController = SFSafariViewController(url: url, configuration: readerViewConfiguration)
         safariViewController.preferredBarTintColor = .black

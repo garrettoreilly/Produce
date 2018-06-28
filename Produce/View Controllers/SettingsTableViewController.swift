@@ -10,14 +10,12 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
-    var settings = Settings(readerModeEnabled: false)
-    
     let readerModeCell: UITableViewCell = {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
         cell.textLabel?.text = "Enable Reader mode by default"
         let readerSwitch = UISwitch()
-        readerSwitch.setOn(false, animated: false)
+        readerSwitch.setOn(Settings.sharedInstance.readerModeEnabled, animated: false)
         readerSwitch.addTarget(self, action: #selector(readerSwitchValueChanged), for: .valueChanged)
         readerSwitch.translatesAutoresizingMaskIntoConstraints = false
         cell.addSubview(readerSwitch)
@@ -31,11 +29,10 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
-        
     }
     
     @objc func readerSwitchValueChanged() {
-        settings.readerModeEnabled = !settings.readerModeEnabled
+        Settings.sharedInstance.readerModeEnabled = !Settings.sharedInstance.readerModeEnabled
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
