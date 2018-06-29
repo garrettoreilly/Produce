@@ -12,7 +12,7 @@ import SafariServices
 
 class AllNewsTableViewController: UITableViewController, ArticleControllerDelegate {
     
-    var settings = Settings.sharedInstance
+    let settings = Settings.sharedInstance
     
     var articleController = ArticleController()
     

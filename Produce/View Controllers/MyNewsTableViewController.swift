@@ -52,7 +52,7 @@ class MyNewsTableViewController: UITableViewController, ArticleControllerDelegat
     
     @objc func refreshArticles() {
         articleController.fetchArticles(with: query)
-        self.refreshControl?.endRefreshing()
+        refreshControl?.endRefreshing()
     }
     
     func updateArticles(with articles: [Article]?) {
